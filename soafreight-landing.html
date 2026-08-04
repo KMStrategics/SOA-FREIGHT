@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soa Freight — Logistics, Shipping & Home Pickup | DMV to Ghana</title>
+<meta name="description" content="Soa Freight picks up at your door in the USA and ships to Ghana. Door-to-door freight, barrels, boxes and cargo with online booking and tracking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,800;1,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#152238;
+    --navy-2:#1B2942;
+    --navy-3:#223252;
+    --orange:#E8722C;
+    --orange-deep:#C85E1F;
+    --slate:#94A3B8;
+    --bronze:#A15B38;
+    --paper:#F8FAFC;
+    --line:rgba(148,163,184,.18);
+    --line-light:rgba(21,34,56,.10);
+    --radius:14px;
+    --font-display:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+    --font-body:'Inter',system-ui,-apple-system,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,'SF Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);background:var(--navy);color:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--orange);color:#fff}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:4px}
+  img,svg{display:block}
+
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--font-mono);letter-spacing:.08em}
+  .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:12px}
+  .eyebrow .bars{display:inline-flex;flex-direction:column;gap:3px}
+  .eyebrow .bars i{display:block;height:3px;border-radius:2px}
+  .eyebrow .bars i:nth-child(1){width:18px;background:var(--orange);margin-left:6px}
+  .eyebrow .bars i:nth-child(2){width:18px;background:var(--slate);margin-left:0}
+  .eyebrow .bars i:nth-child(3){width:18px;background:var(--bronze);margin-left:3px}
+
+  /* ---------- NAV ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(21,34,56,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;gap:28px;height:68px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:800;font-style:italic;font-size:21px;letter-spacing:-.01em}
+  .logo .bars{display:flex;flex-direction:column;gap:3.5px;transform:skewX(-12deg)}
+  .logo .bars i{display:block;height:5px;width:26px;border-radius:3px}
+  .logo .bars i:nth-child(1){background:var(--orange);margin-left:8px}
+  .logo .bars i:nth-child(2){background:var(--slate)}
+  .logo .bars i:nth-child(3){background:var(--bronze);margin-left:4px}
+  .logo b{color:#fff}.logo span{color:var(--orange);font-weight:800}
+  .nav-links{display:flex;gap:26px;font-size:14.5px;font-weight:500;color:var(--slate);margin-left:8px}
+  .nav-links a:hover{color:#fff}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:16px}
+
+  /* ticker pill — top right, as specced */
+  .ticker{width:300px;overflow:hidden;border:1px solid var(--line);border-radius:99px;height:34px;display:flex;align-items:center;background:var(--navy-2)}
+  .ticker-track{display:flex;white-space:nowrap;animation:tick 36s linear infinite}
+  .ticker-track span{font-family:var(--font-mono);font-size:11.5px;color:var(--slate);padding:0 28px}
+  .ticker-track span b{color:var(--orange);font-weight:500}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:15px;border-radius:10px;padding:12px 22px;border:0;cursor:pointer;transition:transform .15s ease,background .15s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-orange{background:var(--orange);color:#fff}
+  .btn-orange:hover{background:var(--orange-deep)}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25)}
+  .btn-ghost:hover{border-color:#fff}
+  .btn-sm{padding:9px 18px;font-size:14px}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:96px 0 0}
+  .hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(40px,6.2vw,72px);line-height:1.04;letter-spacing:-.025em;max-width:820px;margin:26px 0 22px}
+  .hero h1 em{font-style:italic;color:var(--orange)}
+  .hero p.lede{font-size:18px;color:var(--slate);max-width:560px;margin-bottom:36px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:72px}
+
+  /* signature: the route line */
+  .route{position:relative;padding:34px 0 40px;border-top:1px solid var(--line)}
+  .route-line{display:flex;align-items:center;gap:0}
+  .route-line .dot{width:14px;height:14px;border-radius:50%;background:#fff;flex:none}
+  .route-line .path{flex:1;height:3px;background:linear-gradient(90deg,#fff 0%,var(--orange) 100%);position:relative}
+  .route-line .path::after{content:"";position:absolute;left:0;top:-4px;width:44px;height:11px;border-radius:6px;background:var(--orange);opacity:.9;animation:travel 7s linear infinite}
+  @keyframes travel{from{left:0;opacity:0}8%{opacity:.9}92%{opacity:.9}to{left:calc(100% - 44px);opacity:0}}
+  .route-line .ring{width:16px;height:16px;border-radius:50%;border:4px solid var(--orange);flex:none}
+  .route-labels{display:flex;justify-content:space-between;margin-top:14px;font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;color:var(--slate)}
+  .route-labels b{color:#fff;font-weight:500}
+
+  /* stats strip */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stats div{padding:26px 8px;text-align:center}
+  .stats div+div{border-left:1px solid var(--line)}
+  .stats .n{font-family:var(--font-display);font-weight:800;font-size:26px}
+  .stats .l{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-top:4px}
+
+  /* ---------- LIGHT SECTIONS ---------- */
+  .light{background:var(--paper);color:var(--navy)}
+  .light .eyebrow{color:var(--orange-deep)}
+  section{padding:96px 0}
+  h2{font-family:var(--font-display);font-weight:800;font-size:clamp(28px,4vw,42px);letter-spacing:-.02em;line-height:1.1;margin:20px 0 14px}
+  .sub{color:var(--slate);max-width:560px;font-size:16.5px}
+  .light .sub{color:#5a6a80}
+
+  /* how it works */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:56px}
+  .step{background:#fff;border:1px solid var(--line-light);border-radius:var(--radius);padding:28px 24px;position:relative}
+  .step .num{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;color:var(--orange-deep)}
+  .step h3{font-family:var(--font-display);font-weight:800;font-size:18px;margin:14px 0 8px;letter-spacing:-.01em}
+  .step p{font-size:14.5px;color:#5a6a80;line-height:1.55}
+  .step::before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;border-radius:0 0 3px 3px;background:var(--orange)}
+  .step:nth-child(2)::before{background:var(--slate)}
+  .step:nth-child(3)::before{background:var(--bronze)}
+  .step:nth-child(4)::before{background:var(--navy)}
+
+  /* calculator + tracker split */
+  .tools{display:grid;grid-template-columns:1.15fr .85fr;gap:26px;margin-top:56px}
+  .card{background:#fff;border:1px solid var(--line-light);border-radius:var(--radius);padding:34px}
+  .card h3{font-family:var(--font-display);font-weight:800;font-size:20px;letter-spacing:-.01em;margin-bottom:6px}
+  .card .hint{font-size:13.5px;color:#5a6a80;margin-bottom:24px}
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .field{display:flex;flex-direction:column;gap:7px}
+  .field label{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5a6a80}
+  .field input,.field select{font-family:var(--font-body);font-size:15px;padding:12px 14px;border:1px solid rgba(21,34,56,.18);border-radius:10px;background:#fff;color:var(--navy)}
+  .field input:focus,.field select:focus{outline:2px solid var(--orange);outline-offset:0;border-color:var(--orange)}
+  .estimate{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--paper);border:1px dashed rgba(21,34,56,.2);border-radius:10px;padding:16px 20px}
+  .estimate .val{font-family:var(--font-display);font-weight:800;font-size:24px}
+  .estimate .lbl{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5a6a80}
+  .fine{font-size:12px;color:#8a97a8;margin-top:12px}
+
+  /* tracker */
+  .track-input{display:flex;gap:10px;margin-top:4px}
+  .track-input input{flex:1;font-family:var(--font-mono);font-size:14px;padding:12px 14px;border:1px solid rgba(21,34,56,.18);border-radius:10px}
+  .timeline{margin-top:26px;display:none;flex-direction:column;gap:0}
+  .timeline.show{display:flex}
+  .tl{display:flex;gap:14px;position:relative;padding-bottom:22px}
+  .tl:last-child{padding-bottom:0}
+  .tl::before{content:"";position:absolute;left:7px;top:18px;bottom:0;width:2px;background:var(--line-light)}
+  .tl:last-child::before{display:none}
+  .tl .pip{width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--orange);flex:none;margin-top:2px}
+  .tl.pending .pip{border-color:rgba(21,34,56,.18)}
+  .tl b{font-size:14px;display:block}
+  .tl span{font-family:var(--font-mono);font-size:11.5px;color:#8a97a8}
+  .tl.pending b{color:#8a97a8}
+
+  /* services */
+  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+  .svc .card h3{margin-top:14px}
+  .svc .tag{display:inline-block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--navy);border-radius:99px;padding:5px 12px}
+  .svc .card:nth-child(2) .tag{background:var(--orange)}
+  .svc .card:nth-child(3) .tag{background:var(--bronze)}
+  .svc p{font-size:14.5px;color:#5a6a80}
+
+  /* cta band */
+  .band{background:var(--navy);color:#fff}
+  .band .inner{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+  .band h2{margin:0 0 6px}
+  .band p{color:var(--slate)}
+
+  footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--slate);font-size:14px}
+  .foot{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-start}
+  .foot .logo{font-size:17px}
+  .foot .logo .bars i{height:4px;width:20px}
+  .foot-links{display:flex;gap:22px}
+  .foot-links a:hover{color:#fff}
+  .legal{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  /* responsive */
+  @media (max-width:940px){
+    .nav-links{display:none}
+    .ticker{display:none}
+    .steps{grid-template-columns:1fr 1fr}
+    .tools{grid-template-columns:1fr}
+    .svc{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr}
+    .stats div:nth-child(3){border-left:0}
+    .stats div:nth-child(1),.stats div:nth-child(2){border-bottom:1px solid var(--line)}
+  }
+  @media (max-width:560px){
+    .steps{grid-template-columns:1fr}
+    .fields{grid-template-columns:1fr}
+    .hero{padding-top:64px}
+    section{padding:72px 0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ticker-track{animation:none}
+    .route-line .path::after{animation:none;opacity:0}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#" aria-label="Soa Freight home">
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><b>SOA</b> <span>FREIGHT</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#quote">Get a quote</a>
+        <a href="#track">Track</a>
+        <a href="#services">Services</a>
+      </div>
+      <div class="nav-right">
+        <div class="ticker" aria-hidden="true">
+          <div class="ticker-track" id="ticker">
+            <span>✈ Next air cargo to <b>Accra</b> departs Friday 5 PM EST</span>
+            <span>📦 Doorstep USA → doorstep Ghana, fully trackable</span>
+            <span>🔥 <b>15% off</b> your first scheduled pickup</span>
+            <span>✈ Next air cargo to <b>Accra</b> departs Friday 5 PM EST</span>
+            <span>📦 Doorstep USA → doorstep Ghana, fully trackable</span>
+            <span>🔥 <b>15% off</b> your first scheduled pickup</span>
+          </div>
+        </div>
+        <a class="btn btn-orange btn-sm" href="#quote">Schedule a pickup</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span> USA → GHANA · DOOR TO DOOR</div>
+      <h1>Doorstep pickup in the USA.<br><em>Direct delivery</em> to Ghana.</h1>
+      <p class="lede">We come to your home, pack your cargo onto scheduled air and sea freight, and hand it to your family in Ghana. Booked online, tracked the whole way.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-orange" href="#quote">Schedule a pickup</a>
+        <a class="btn btn-ghost" href="#quote">Create an account</a>
+      </div>
+    </div>
+    <div class="wrap route">
+      <div class="route-line" aria-hidden="true">
+        <span class="dot"></span><span class="path"></span><span class="ring"></span>
+      </div>
+      <div class="route-labels">
+        <span><b>YOUR DOOR</b> · WASHINGTON DMV</span>
+        <span class="mono">SF-ACCRA-0031 · IN TRANSIT</span>
+        <span><b>THEIR DOOR</b> · ACCRA / TEMA</span>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="stats" role="list">
+        <div role="listitem"><div class="n">Weekly</div><div class="l">Air departures</div></div>
+        <div role="listitem"><div class="n">Door-to-door</div><div class="l">Pickup &amp; delivery</div></div>
+        <div role="listitem"><div class="n">Air + Sea</div><div class="l">Freight options</div></div>
+        <div role="listitem"><div class="n">Live</div><div class="l">Online tracking</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="light" id="how">
+    <div class="wrap">
+      <div class="eyebrow"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span> HOW IT WORKS</div>
+      <h2>Four steps. Zero warehouse trips.</h2>
+      <p class="sub">Other shippers make you drive your barrels to a depot. We built Soa Freight so the truck comes to you.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">STEP 01</div>
+          <h3>Book online</h3>
+          <p>Pick a pickup date and time slot that fits your week. Two minutes, from your phone.</p>
+        </div>
+        <div class="step">
+          <div class="num">STEP 02</div>
+          <h3>We collect at your door</h3>
+          <p>Our team arrives at your home anywhere in the DMV, weighs your items, and confirms your quote on the spot.</p>
+        </div>
+        <div class="step">
+          <div class="num">STEP 03</div>
+          <h3>Secure air or sea transit</h3>
+          <p>Cargo moves on scheduled air departures or consolidated sea containers, sealed and documented.</p>
+        </div>
+        <div class="step">
+          <div class="num">STEP 04</div>
+          <h3>Delivered in Ghana</h3>
+          <p>Your recipient gets a call, then a knock. Proof of delivery lands in your account.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE + TRACK -->
+  <section class="light" id="quote" style="padding-top:0">
+    <div class="wrap">
+      <div class="tools">
+        <div class="card">
+          <h3>Estimate your shipment</h3>
+          <p class="hint">Rough numbers before you book — your final quote is confirmed at pickup.</p>
+          <div class="fields">
+            <div class="field">
+              <label for="zip">US origin ZIP</label>
+              <input id="zip" inputmode="numeric" maxlength="5" placeholder="22191">
+            </div>
+            <div class="field">
+              <label for="city">Ghana destination</label>
+              <select id="city">
+                <option>Accra</option><option>Tema</option><option>Kumasi</option><option>Takoradi</option><option>Other region</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="ptype">Package type</label>
+              <select id="ptype">
+                <option value="box">Box</option>
+                <option value="barrel">Barrel / drum</option>
+                <option value="pallet">Pallet</option>
+                <option value="vehicle-part">Vehicle parts</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="wt">Weight (lbs)</label>
+              <input id="wt" inputmode="numeric" placeholder="50">
+            </div>
+          </div>
+          <div class="estimate">
+            <div>
+              <div class="lbl">Estimated range</div>
+              <div class="val" id="est">—</div>
+            </div>
+            <button class="btn btn-orange btn-sm" id="calc">Get estimate</button>
+          </div>
+          <p class="fine">Estimates cover freight only. Duties, customs and oversize handling are quoted before anything ships — no surprises at delivery.</p>
+        </div>
+
+        <div class="card" id="track">
+          <h3>Track a shipment</h3>
+          <p class="hint">Enter the tracking ID from your booking confirmation.</p>
+          <div class="track-input">
+            <input id="tid" placeholder="SF-ACCRA-0000" aria-label="Tracking ID">
+            <button class="btn btn-orange btn-sm" id="trackBtn">Track</button>
+          </div>
+          <div class="timeline" id="timeline" aria-live="polite">
+            <div class="tl"><span class="pip"></span><div><b>Pickup scheduled</b><span>Woodbridge, VA</span></div></div>
+            <div class="tl"><span class="pip"></span><div><b>Picked up</b><span>Signed by driver K.A.</span></div></div>
+            <div class="tl"><span class="pip"></span><div><b>In transit — departed IAD</b><span>Air cargo, Washington Dulles</span></div></div>
+            <div class="tl pending"><span class="pip"></span><div><b>Arrived in Ghana</b><span>Kotoka International, Accra</span></div></div>
+            <div class="tl pending"><span class="pip"></span><div><b>Out for delivery</b><span>—</span></div></div>
+          </div>
+          <p class="fine" id="trackNote" style="display:none">Preview timeline — live tracking activates with your first booking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="light" id="services" style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span> SERVICES</div>
+      <h2>One company, the whole journey.</h2>
+      <div class="svc">
+        <div class="card">
+          <span class="tag">Soa Freight Air</span>
+          <h3>Air cargo</h3>
+          <p>Scheduled weekly departures for time-sensitive boxes, documents and personal effects. Days, not weeks.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Soa Freight Sea</span>
+          <h3>Sea freight</h3>
+          <p>Barrels, drums and consolidated container space for the big loads — the most economical way home.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Home Pickup</span>
+          <h3>Doorstep collection</h3>
+          <p>We collect from your home across the DMV. No depot runs, no lifting barrels into your trunk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="band">
+    <div class="wrap inner">
+      <div>
+        <h2>Your first pickup is one form away.</h2>
+        <p>Create an account, pick a time slot, and leave the rest to us.</p>
+      </div>
+      <a class="btn btn-orange" href="#quote">Schedule a pickup</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#" aria-label="Soa Freight home">
+          <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span><b>SOA</b> <span style="color:var(--orange)">FREIGHT</span></span>
+        </a>
+        <p style="margin-top:12px;max-width:280px">Logistics, shipping &amp; home pickup. Washington DMV to Ghana, door to door.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#how">How it works</a>
+        <a href="#quote">Quote</a>
+        <a href="#track">Track</a>
+        <a href="mailto:ship@soafreight.com">ship@soafreight.com</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Soa Freight, a KM Strategics LLC company. All rights reserved.</span>
+      <span class="mono">SOAFREIGHT.COM</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Rate estimator — placeholder pricing until real tariffs are loaded
+  const RATES = { box: [2.4, 3.2], barrel: [1.9, 2.6], pallet: [1.6, 2.2], 'vehicle-part': [2.8, 3.8] }; // $/lb ranges
+  const MINIMUM = 45;
+  document.getElementById('calc').addEventListener('click', () => {
+    const wt = parseFloat(document.getElementById('wt').value);
+    const type = document.getElementById('ptype').value;
+    const out = document.getElementById('est');
+    if (!wt || wt <= 0) { out.textContent = 'Enter a weight'; out.style.fontSize = '16px'; return; }
+    const [lo, hi] = RATES[type];
+    const low = Math.max(MINIMUM, Math.round(wt * lo));
+    const high = Math.max(MINIMUM, Math.round(wt * hi));
+    out.style.fontSize = '';
+    out.textContent = `$${low} – $${high}`;
+  });
+
+  // Tracking preview
+  document.getElementById('trackBtn').addEventListener('click', () => {
+    const v = document.getElementById('tid').value.trim();
+    if (!v) return;
+    document.getElementById('timeline').classList.add('show');
+    document.getElementById('trackNote').style.display = 'block';
+  });
+</script>
+</body>
+</html>
